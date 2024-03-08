@@ -1,8 +1,8 @@
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 
-#Make this configurable
-persist_dir = "/Users/apple/dev/python-app-services/ai_services//data/chroma"
+#Make this configurable. Change to a location where we need to persist the vector db on disk.
+persist_dir = "ai_services/data/chroma"
 embedding = OpenAIEmbeddings()
 
 def load_embeddings_to_vectordb(split_docs):
