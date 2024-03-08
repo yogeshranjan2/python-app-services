@@ -18,8 +18,9 @@ def load_web_page():
 
 @api_blueprint.route('/load-document', methods=['POST'])
 def load_document():
-    #docPath = "/Users/apple/dev/python-app-services/ai_services/data/Electric_Vehicle_Population_Data.csv"
-    docPath = "/Users/apple/dev/python-app-services/ai_services/data/sec-guide-to-mutual-funds.pdf"
+    #In real app, the file would be passed from a UI or have a preconfigured location on the server.
+    #docPath = "ai_services/data/Electric_Vehicle_Population_Data.csv"
+    docPath = "ai_services/data/sec-guide-to-mutual-funds.pdf"
     fileExt = os.path.splitext(docPath)[1]
     if (fileExt.lower().endswith("csv")):
         load_embed_store_doc(DocumentType.CSV, docPath)
