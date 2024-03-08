@@ -1,0 +1,14 @@
+flask
+requests
+openai
+flask-cors
+python-dotenv
+langchain
+langchain-community
+langchain-core
+langchain-experimental
+langchain-openai
+langchainhub
+langsmith
+chromadb
+chroma-hnswlib
