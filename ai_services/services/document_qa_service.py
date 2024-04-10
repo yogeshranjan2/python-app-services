@@ -6,7 +6,6 @@ from ai_services.services.vectordb_service import get_vectordb
 
 def get_question_answer(question):
     vectordb = get_vectordb()
-    mbeddings = OpenAIEmbeddings()
     model = ChatOpenAI()
 
     # Build prompt
@@ -28,5 +27,8 @@ def get_question_answer(question):
     )
     #Invoke the chain
     answer = qa_chain.invoke(question)
-    print (f"answer response {answer}")
+    print()
+    print (f"Answer result => {answer['result']}")
+    print()
+    print (f"Answer source documents => {answer['source_documents']}")
     return answer['result']
