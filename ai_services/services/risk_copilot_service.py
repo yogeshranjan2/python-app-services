@@ -73,8 +73,18 @@ def generateRisksAndControls(riskCount, policyName):
     response = get_completion(prompt)
     json_output_dict = json.loads(response)
     keys = list(json_output_dict)
-    print (json_output_dict[keys[0]])
-    return json_output_dict[keys[0]]
+    #Below is tactical solution to return list when only one risk is returned by the model
+    print(len(keys))
+    if (len(keys) != 1) :
+        print ('inside if.......')
+        print (json_output_dict)
+        risk_list = [json_output_dict]
+        return risk_list
+    else:
+        print ('inside else.....')
+        print (json_output_dict)
+        return json_output_dict[keys[0]]
+
 
 def generateOpEventAnalyisPrompt (opEventDescription, risks_str):
     op_event_analysis_prompt = f"""
@@ -114,8 +124,15 @@ def analyseRCSAGaps (opEventDescription):
     print (response)
     json_output_dict = json.loads(response)
     keys = list(json_output_dict)
-    print (json_output_dict[keys[0]])
-    return json_output_dict[keys[0]]
+
+    if (len(keys) != 1) :
+        print ('inside if.......')
+        risk_list = [json_output_dict]
+        return risk_list
+    else:
+        print ('inside else.....')
+        print (json_output_dict)
+        return json_output_dict[keys[0]]
 
 def getCurrentRisksAndControls():
     return current_risks_controls.information_security_risks_controls
@@ -127,11 +144,16 @@ def generateMissingRisksAndControls(policyName):
     current_risks_str = ", ".join(risk_list)
     prompt = generatePromptForMissingRisks(policyName, current_risks_str)
     response = get_completion(prompt)
-    print (response)
-    print ()
     json_output_dict = json.loads(response)
     keys = list(json_output_dict)
-    print (json_output_dict)
-    return json_output_dict[keys[0]]
+    #Below is tactical solution to return list when only one risk is returned by the model
+    if (len(keys) != 1) :
+        print ('inside if.......')
+        risk_list = [json_output_dict]
+        return risk_list
+    else:
+        print ('inside else.....')
+        print (json_output_dict)
+        return json_output_dict[keys[0]]
 
 

@@ -48,7 +48,7 @@ def generate_risks_and_controls():
     return risks
 
 @api_blueprint.route('/generate-missing-risks', methods=['GET'])
-def generate_missin_risks_and_controls():
+def generate_missing_risks_and_controls():
     policyName = request.args.get('policy')
     print (f"request parameters {policyName}")
     risks = generateMissingRisksAndControls(policyName)
