@@ -1,7 +1,8 @@
 from ai_services.common.document_type import DocumentType
 from ai_services.services.document_loader_service import load_embed_store_doc
 from ai_services.services.document_qa_service import get_question_answer
-from ai_services.services.risk_copilot_service import generateRisksAndControls, analyseRCSAGaps, getCurrentRisksAndControls, generateMissingRisksAndControls
+from ai_services.services.risk_copilot_service import analyseRCSAGaps, getCurrentRisksAndControls, generateMissingRisksAndControls
+from ai_services.services.risk_copilot_service2 import generateRisksAndControls
 import os
 from . import api_blueprint
 
